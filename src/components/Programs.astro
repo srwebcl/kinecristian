@@ -1,0 +1,335 @@
+---
+const programs = [
+    {
+        title: "Pack Calma y Sueño",
+        target: "Estrés y Ansiedad",
+        desc: "Alivio del estrés y mejora del sueño desde la primera semana. Ciclo de 5 sesiones de masoterapia clínica.",
+        price: "$25.000 / sesión",
+        icon: "🌙",
+        featured: false,
+    },
+    {
+        title: "Vitalidad 3 Meses",
+        target: "Dolor Crónico y Rehabilitación",
+        desc: "Mejora radical de calidad de vida. Recuperación de fuerza, equilibrio y movimiento sin dolor.",
+        price: "Plan Trimestral",
+        icon: "⚡",
+        featured: true,
+    },
+    {
+        title: "Retorno Seguro",
+        target: "Pre y Post Operatorio",
+        desc: "Prepara tu cuerpo para la cirugía o recupérate más rápido y seguro después de ella.",
+        price: "Evaluación Personalizada",
+        icon: "🛡️",
+        featured: false,
+    },
+    {
+        title: "Alivio Express",
+        target: "Dolor Agudo",
+        desc: "Solución focalizada para dolor de rodilla, cuello, hombro o espalda. Alivio inmediato.",
+        price: "Desde $35.000",
+        icon: "🚑",
+        featured: false,
+    },
+];
+---
+
+<section id="programas" class="programs-section">
+    <div class="container mobile-container">
+        <div class="section-header">
+            <h2 class="section-title">Programas de Transformación</h2>
+            <p class="section-subtitle">
+                Soluciones diseñadas para recuperar tu bienestar integral
+            </p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="programs-carousel">
+                {
+                    programs.map((prog) => (
+                        <div
+                            class={`program-card ${prog.featured ? "featured" : ""}`}
+                        >
+                            <div class="card-icon">{prog.icon}</div>
+                            <h3 class="card-title">{prog.title}</h3>
+                            <div class="card-target">{prog.target}</div>
+                            <p class="card-desc">{prog.desc}</p>
+                            <div class="card-price">{prog.price}</div>
+                            <a
+                                href="#contacto"
+                                class={`btn-card ${prog.featured ? "btn-featured" : ""}`}
+                            >
+                                Agendar ahora
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+            <!-- Scroll hint/Fade -->
+            <div class="carousel-fade-right"></div>
+        </div>
+
+        <!-- New CTA Bar -->
+        <div class="cta-bar fade-in-up">
+            <div class="cta-content">
+                <span class="cta-icon">🏠</span>
+                <div class="cta-text">
+                    <h3>¿Prefieres una prueba a un precio especial?</h3>
+                    <p>
+                        Agenda tu <strong>primera sesión a domicilio</strong> por
+                        solo <strong>$18.000</strong>.
+                    </p>
+                </div>
+            </div>
+            <a href="#contacto" class="btn-cta">Probar por $18.000</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .programs-section {
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden; /* Prevent horizontal scroll on body */
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 0 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: 5rem;
+    }
+
+    .programs-carousel {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 2rem 1.5rem 4rem 1.5rem; /* Bottom padding for shadow/hover space */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .programs-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .program-card {
+        flex: 0 0 320px; /* Fixed width cards */
+        scroll-snap-align: center;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2.5rem;
+        border-radius: 20px;
+        transition:
+            transform 0.3s ease,
+            border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .program-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--color-primary);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .featured {
+        background: linear-gradient(
+            145deg,
+            rgba(87, 226, 229, 0.05),
+            rgba(15, 76, 117, 0.2)
+        );
+        border: 1px solid var(--color-primary);
+        box-shadow: 0 0 30px rgba(87, 226, 229, 0.1);
+    }
+
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #fff;
+    }
+
+    .card-target {
+        font-size: 0.9rem;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .card-desc {
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        margin-bottom: 2rem;
+        flex-grow: 1;
+        line-height: 1.5;
+    }
+
+    .card-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-card {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+    }
+
+    .btn-card:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-featured {
+        background: var(--color-primary);
+        color: #000;
+    }
+
+    .btn-featured:hover {
+        background: #fff;
+    }
+
+    /* Carousel Fades */
+    .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100%;
+        background: linear-gradient(to right, transparent, var(--color-bg));
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    /* CTA Bar Styles */
+    .cta-bar {
+        background: linear-gradient(90deg, #1a2236, #0f4c75);
+        border-radius: 20px;
+        padding: 2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        margin: 0 1.5rem; /* Align with container padding */
+    }
+
+    .cta-content {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .cta-icon {
+        font-size: 3rem;
+    }
+
+    .cta-text h3 {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-text p {
+        color: #d1d5db;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .btn-cta {
+        background: #fff;
+        color: var(--color-secondary);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .btn-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 900px) {
+        .cta-bar {
+            flex-direction: column;
+            text-align: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .cta-content {
+            flex-direction: column;
+        }
+
+        .programs-carousel {
+            /* Ensure padding allows seeing the first and last items fully */
+            padding: 2rem 1.5rem 4rem 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".program-card", {
+        scrollTrigger: {
+            trigger: ".programs-carousel",
+            start: "top 85%",
+        },
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+    });
+
+    gsap.from(".fade-in-up", {
+        scrollTrigger: {
+            trigger: ".cta-bar",
+            start: "top 90%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+    });
+</script>

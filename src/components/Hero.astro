@@ -1,0 +1,275 @@
+---
+
+---
+
+<section class="hero">
+    <!-- Background Image with Overlay -->
+    <div class="hero-bg">
+        <div class="overlay-gradient"></div>
+        <!-- Formal Particles Container -->
+        <div class="particles-container">
+            {
+                Array.from({ length: 20 }).map((_, i) => (
+                    <div class={`particle p-${i}`} />
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="container hero-content-wrapper">
+        <div class="hero-content">
+            <h2 class="subtitle fade-in">KINESIÓLOGO EN LA SERENA</h2>
+            <h1 class="title fade-in">
+                Recupera tu <span class="text-gradient">Fuerza</span><br />
+                Recupera tu <span class="text-gradient">Vida</span>
+            </h1>
+            <p class="description fade-in">
+                Especialista en alivio del dolor crónico, estrés y
+                rehabilitación deportiva. Tratamientos personalizados que atacan
+                la raíz del problema, no solo los síntomas.
+            </p>
+            <div class="cta-group fade-in">
+                <a href="#programas" class="btn">Ver Programas</a>
+                <a href="#contacto" class="btn-outline">Agendar Evaluación</a>
+            </div>
+
+            <div class="stats fade-in">
+                <div class="stat-item">
+                    <span class="stat-number">+10</span>
+                    <span class="stat-label">Años de Exp.</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5/5</span>
+                    <span class="stat-label">Valoración</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Personalizado</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/kine-cristian.jpg");
+        background-size: cover;
+        background-position: center top;
+        z-index: 0;
+        /* Ken Burns Effect */
+        animation: scaleBg 20s infinite alternate;
+    }
+
+    @keyframes scaleBg {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    /* Strong Gradient Overlay */
+    /* Cover almost everything, revealing right side */
+    .overlay-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            #0b0e14 0%,
+            #0b0e14 45%,
+            rgba(11, 14, 20, 0.95) 60%,
+            rgba(11, 14, 20, 0.4) 80%,
+            rgba(11, 14, 20, 0.1) 100%
+        );
+        z-index: 1;
+    }
+
+    .particles-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .subtitle {
+        color: var(--color-primary);
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: clamp(3rem, 6vw, 4.8rem);
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .description {
+        font-size: 1.25rem;
+        margin-bottom: 3rem;
+        max-width: 90%;
+        color: #ddd; /* Lighter for readability on dark gradient */
+    }
+
+    .cta-group {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-outline {
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+    }
+
+    .stats {
+        display: flex;
+        gap: 4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        font-family: var(--font-heading);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+    }
+
+    @media (max-width: 768px) {
+        /* On mobile, darken everything so text is readable */
+        .overlay-gradient {
+            background: linear-gradient(
+                180deg,
+                #0b0e14 0%,
+                rgba(11, 14, 20, 0.9) 60%,
+                rgba(11, 14, 20, 0.7) 100%
+            );
+        }
+
+        .hero-bg {
+            background-position: center center;
+        }
+
+        .hero {
+            padding-top: 100px;
+        }
+
+        .stats {
+            gap: 2rem;
+        }
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+
+    // Entrance Animations
+    gsap.from(".fade-in", {
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "power3.out",
+        delay: 0.2,
+    });
+
+    // Formal/Subtle Particles
+    // Just gentle floating dust/light
+    const particles = document.querySelectorAll(".particle");
+
+    particles.forEach((p) => {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        // Smaller, more formal size
+        const size = Math.random() * 3 + 1;
+
+        gsap.set(p, {
+            left: x + "%",
+            top: y + "%",
+            width: size,
+            height: size,
+            opacity: Math.random() * 0.4 + 0.1, // Low opacity
+        });
+
+        // Very slow movement
+        gsap.to(p, {
+            y: `-=${Math.random() * 100 + 50}`, // Move up slowly
+            x: Math.random() * 50 - 25,
+            duration: Math.random() * 10 + 10, // 10-20s duration
+            repeat: -1,
+            ease: "none", // Linear movement
+            yoyo: true, // Actually let's not yoyo, just float up and reset? or yoyo for "hovering in air"
+        });
+
+        // Fading pulse
+        gsap.to(p, {
+            opacity: 0,
+            duration: Math.random() * 2 + 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+        });
+    });
+</script>

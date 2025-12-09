@@ -1,0 +1,133 @@
+---
+const navItems = [
+    { name: "Programas", href: "#programas" },
+    { name: "Sobre Mí", href: "#sobre-mi" },
+    { name: "Contacto", href: "#contacto" },
+];
+---
+
+<header class="header">
+    <div class="container header-inner">
+        <a href="/" class="logo">
+            Kine<span class="text-primary">Cristian</span>
+        </a>
+
+        <nav class="nav">
+            <ul>
+                {
+                    navItems.map((item) => (
+                        <li>
+                            <a href={item.href}>{item.name}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+            <a href="#contacto" class="btn-sm">Agendar Hora</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1.5rem 0;
+        transition:
+            padding 0.3s ease,
+            background 0.3s ease;
+    }
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a {
+        color: var(--color-text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+        color: var(--color-primary);
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .btn-sm {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-sm:hover {
+        background: var(--color-primary);
+        color: #000;
+    }
+
+    @media (max-width: 768px) {
+        .nav ul {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const header = document.querySelector(".header") as HTMLElement;
+
+    if (header) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.style.background = "rgba(11, 14, 20, 0.9)";
+                header.style.backdropFilter = "blur(10px)";
+                header.style.padding = "1rem 0";
+                header.style.borderBottom = "1px solid rgba(255,255,255,0.05)";
+            } else {
+                header.style.background = "transparent";
+                header.style.backdropFilter = "none";
+                header.style.padding = "1.5rem 0";
+                header.style.borderBottom = "none";
+            }
+        });
+    }
+</script>

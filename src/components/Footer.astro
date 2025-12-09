@@ -1,0 +1,277 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="container mobile-container">
+        <div class="footer-grid">
+            <!-- Brand Column -->
+            <div class="footer-col brand-col">
+                <a href="/" class="logo">
+                    Kine<span class="text-primary">Cristian</span>
+                </a>
+                <p class="brand-desc">
+                    Rehabilitación kinesiológica y masoterapia clínica a
+                    domicilio. Recuperamos tu bienestar con un enfoque integral
+                    y personalizado.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"></rect><path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            ></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"
+                            ></line></svg
+                        >
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            ></path></svg
+                        >
+                    </a>
+                    <a
+                        href="https://wa.me/56912345678"
+                        target="_blank"
+                        class="social-link"
+                        aria-label="WhatsApp"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                            ></path></svg
+                        >
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links Column -->
+            <div class="footer-col links-col">
+                <h4 class="col-title">Navegación</h4>
+                <ul class="footer-nav">
+                    <li><a href="#programas">Programas</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#contacto">Agendar Hora</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-col contact-col">
+                <h4 class="col-title">Contacto</h4>
+                <div class="contact-line">
+                    <span class="c-icon">📍</span>
+                    <p class="c-text">
+                        La Serena & Coquimbo <br /><span class="text-xs"
+                            >Servicio a Domicilio</span
+                        >
+                    </p>
+                </div>
+                <div class="contact-line">
+                    <span class="c-icon">📧</span>
+                    <a href="mailto:contacto@kinecristian.cl"
+                        >contacto@kinecristian.cl</a
+                    >
+                </div>
+                <div class="contact-line">
+                    <span class="c-icon">📱</span>
+                    <a href="https://wa.me/56912345678">+56 9 1234 5678</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; {year} Cristian Rodríguez - Kinesiólogo. Todos los derechos
+                reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background-color: #050608;
+        padding: 4rem 1.5rem 2rem 1.5rem; /* Ensure consistent padding */
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: #a0a0a0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 0.8fr 1.2fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .logo {
+        display: inline-block;
+        font-family: var(--font-heading, sans-serif);
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: #fff !important;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .text-primary {
+        color: var(--color-primary, #57e2e5);
+    }
+
+    .brand-desc {
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        color: #a0a0a0;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff !important;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        background: var(--color-primary);
+        color: #000 !important;
+        transform: translateY(-2px);
+    }
+
+    .col-title {
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        font-family: var(--font-heading);
+    }
+
+    .footer-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-nav li {
+        margin-bottom: 1rem;
+    }
+
+    .footer-nav a {
+        color: #a0a0a0 !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease;
+        display: block;
+    }
+
+    .footer-nav a:hover {
+        color: var(--color-primary) !important;
+        padding-left: 5px;
+    }
+
+    .contact-line {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        align-items: flex-start;
+    }
+
+    .c-icon {
+        font-size: 1.2rem;
+    }
+
+    .c-text {
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .contact-line a {
+        color: #a0a0a0 !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease;
+    }
+
+    .contact-line a:hover {
+        color: #fff !important;
+    }
+
+    .text-xs {
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    @media (max-width: 900px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .footer-col {
+            text-align: center;
+        }
+
+        .social-links,
+        .contact-line {
+            justify-content: center;
+        }
+
+        .contact-line {
+            text-align: left; /* Align text left inside the centered flex container? No, sticking to center for consistency */
+            align-items: center;
+        }
+    }
+</style>

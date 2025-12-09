@@ -1,0 +1,273 @@
+---
+
+---
+
+<section id="contacto" class="contact-section">
+    <div class="container mobile-container">
+        <div class="section-header">
+            <h2 class="section-title">Agenda tu Evaluación</h2>
+            <p class="section-subtitle">
+                Da el primer paso para vivir sin dolor. <br /><span
+                    class="highlight"
+                    >Servicio exclusivo a domicilio en La Serena y Coquimbo.</span>
+            </p>
+        </div>
+
+        <div class="contact-wrapper">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="Tu nombre"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        placeholder="+56 9 ..."
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="program">Programa de Interés</label>
+                    <select id="program" name="program">
+                        <option value="evaluacion">Evaluación General</option>
+                        <option value="domicilio"
+                            >Prueba Domicilio ($18.000)</option
+                        >
+                        <option value="calma">Pack Calma y Sueño</option>
+                        <option value="vitalidad"
+                            >Programa Vitalidad 3 Meses</option
+                        >
+                        <option value="retorno">Retorno Seguro</option>
+                        <option value="alivio">Alivio Express</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje (Opcional)</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Cuéntame brevemente tu dolor o consulta..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit"
+                    >Enviar Solicitud</button
+                >
+                <p class="form-note">
+                    *Te contactaremos vía WhatsApp para confirmar hora.
+                </p>
+            </form>
+
+            <div class="contact-info">
+                <h3>Cobertura a Domicilio</h3>
+                <p>
+                    Llevamos la rehabilitación profesional y camilla clínica a
+                    la comodidad de tu hogar.
+                </p>
+
+                <div class="coverage-box">
+                    <h4>📍 Zonas de Atención:</h4>
+                    <ul>
+                        <li>La Serena</li>
+                        <li>Coquimbo</li>
+                        <li>Sectores aledaños (Consultar)</li>
+                    </ul>
+                </div>
+
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <span class="icon">📧</span>
+                        <a href="mailto:contacto@kinecristian.cl"
+                            >contacto@kinecristian.cl</a
+                        >
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">📱</span>
+                        <a href="https://wa.me/56912345678">+56 9 1234 5678</a>
+                    </div>
+                </div>
+
+                <!-- Trust Badge instead of Map -->
+                <div class="trust-badge">
+                    <span class="badge-icon">🛡️</span>
+                    <div class="badge-text">
+                        <strong>Protocolo Seguro:</strong>
+                        <span
+                            >Atención con todas las medidas sanitarias y
+                            equipamiento profesional.</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        padding: 100px 0;
+        background: #080a0f;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .highlight {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 4rem;
+        background: #11151e;
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 1rem;
+        background: #0b0e14;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #fff;
+        font-family: var(--font-body);
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+    }
+
+    .btn-submit {
+        width: 100%;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .form-note {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 1rem;
+        opacity: 0.7;
+    }
+
+    .contact-info h3 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .coverage-box {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--color-primary);
+    }
+
+    .coverage-box h4 {
+        color: #fff;
+        margin-bottom: 0.5rem;
+    }
+
+    .coverage-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-left: 1.2rem;
+    }
+
+    .coverage-box li {
+        position: relative;
+        margin-bottom: 0.3rem;
+        color: var(--color-text-muted);
+    }
+
+    .coverage-box li::before {
+        content: "•";
+        color: var(--color-primary);
+        position: absolute;
+        left: -1rem;
+    }
+
+    .contact-details {
+        margin: 2rem 0;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .detail-item a {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(87, 226, 229, 0.05); /* Tint of primary */
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+    }
+
+    .badge-icon {
+        font-size: 2rem;
+    }
+
+    .badge-text {
+        font-size: 0.9rem;
+    }
+
+    .badge-text strong {
+        display: block;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+            padding: 1.5rem;
+        }
+    }
+</style>

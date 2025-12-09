@@ -1,0 +1,206 @@
+---
+
+---
+
+<section id="sobre-mi" class="about-section">
+    <div class="container about-container">
+        <div class="about-content">
+            <h2 class="section-title">¿Por qué elegir a Cristian Rodríguez?</h2>
+            <h3 class="highlight-text">
+                Recupera tu fuerza. Recupera tu vida.
+            </h3>
+
+            <p>
+                Cuando el dolor o el estrés te frenan, no necesitas solo "una
+                sesión más"; necesitas un experto que entienda cómo devolverle
+                la vida a tu cuerpo. Soy <strong>Cristian Rodríguez</strong>,
+                Kinesiólogo certificado en <strong>La Serena</strong>, y mi
+                enfoque va más allá de tratar un síntoma: busco recuperar tu
+                funcionalidad completa.
+            </p>
+            <p>
+                A diferencia de atenciones rápidas e impersonales, mis programas
+                como <em>"Vitalidad"</em> o <em>"Calma y Sueño"</em> están diseñados
+                para darte resultados tangibles y duraderos. Ya sea que busques aliviar
+                la carga laboral de tus hombros, prepararte para una cirugía o dejar
+                atrás un dolor crónico, trabajaremos juntos con un plan claro.
+            </p>
+
+            <ul class="credentials-list">
+                <li>✅ Kinesiólogo Certificado</li>
+                <li>✅ Diplomado en Ciencias de la Actividad Física</li>
+                <li>✅ Curso Reanimación Cardiopulmonar Avanzada</li>
+            </ul>
+
+            <a href="#contacto" class="btn">Agenda tu Evaluación</a>
+        </div>
+
+        <div class="about-image">
+            <div class="video-wrapper">
+                <video autoplay loop muted playsinline class="about-video">
+                    <source src="/about-video.mp4" type="video/mp4" />
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="experience-badge">
+                <span class="bad-num">10+</span>
+                <span class="bad-text">Años Ayudando</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-section {
+        padding: 120px 0;
+        background: linear-gradient(to right, #0b0e14 0%, #111 100%);
+    }
+
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+    }
+
+    .highlight-text {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+    }
+
+    .about-content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .credentials-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .credentials-list li {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .about-image {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Limit width */
+        margin: 0 auto;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+    }
+
+    .about-video {
+        width: 100%;
+        height: auto;
+        display: block;
+        transform: scale(1.01); /* Prevent pixel line */
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to top,
+            rgba(11, 14, 20, 0.5),
+            transparent 40%
+        );
+        pointer-events: none;
+    }
+
+    .experience-badge {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        background: var(--color-secondary);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 2;
+    }
+
+    .bad-num {
+        display: block;
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--color-primary);
+    }
+
+    .bad-text {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 900px) {
+        .about-container {
+            grid-template-columns: 1fr;
+        }
+        .about-content {
+            order: 2;
+        }
+        .about-image {
+            order: 1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".about-content", {
+        scrollTrigger: {
+            trigger: ".about-container",
+            start: "top 70%",
+        },
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+    });
+
+    gsap.from(".about-image", {
+        scrollTrigger: {
+            trigger: ".about-container",
+            start: "top 70%",
+        },
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+    });
+</script>

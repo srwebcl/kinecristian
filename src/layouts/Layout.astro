@@ -1,56 +1,70 @@
 ---
 interface Props {
-	title: string;
-	description?: string;
+    title: string;
+    description?: string;
 }
 
-const { title, description = "Kinesiólogo Cristian Rodríguez en La Serena. Recupera tu fuerza, recupera tu vida. Tratamientos de dolor crónico, estrés y rehabilitación deportiva." } = Astro.props;
+const {
+    title,
+    description = "Kinesiólogo Cristian Rodríguez en La Serena. Recupera tu fuerza, recupera tu vida. Tratamientos de dolor crónico, estrés y rehabilitación deportiva.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
-		
-		<title>{title}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	</head>
-	<body>
-		<div class="fixed-bg"></div>
-		<slot />
-	</body>
+        <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;600;700;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title}</title>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        ></script>
+    </head>
+    <body>
+        <div class="fixed-bg"></div>
+        <slot />
+    </body>
 </html>
 
 <style is:global>
-	:root {
-		--color-bg: #0B0E14; /* Deep Dark */
-		--color-primary: #57E2E5; /* Vitality Cyan */
-		--color-secondary: #0F4C75; /* Trust Blue */
-		--color-accent: #3282B8;
-		--color-text: #EAEAEA;
-		--color-text-muted: #A0A0A0;
-		--font-heading: 'Outfit', sans-serif;
-		--font-body: 'Inter', sans-serif;
-	}
+    :root {
+        --color-bg: #0b0e14; /* Deep Dark */
+        --color-primary: #57e2e5; /* Vitality Cyan */
+        --color-secondary: #0f4c75; /* Trust Blue */
+        --color-accent: #3282b8;
+        --color-text: #eaeaea;
+        --color-text-muted: #a0a0a0;
+        --font-heading: "Outfit", sans-serif;
+        --font-body: "Inter", sans-serif;
+    }
 
-	html {
-		font-family: var(--font-body);
-		background: var(--color-bg);
-		color: var(--color-text);
-		scroll-behavior: smooth;
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: var(--font-body);
+        background: var(--color-bg);
+        color: var(--color-text);
+        scroll-behavior: smooth;
         overflow-x: hidden;
-	}
+    }
 
     body {
         margin: 0;
@@ -58,28 +72,33 @@ const { title, description = "Kinesiólogo Cristian Rodríguez en La Serena. Rec
         overflow-x: hidden;
     }
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: var(--font-heading);
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		margin: 0;
-	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+    }
 
     p {
         line-height: 1.6;
         color: var(--color-text-muted);
     }
 
-	.fixed-bg {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		background: radial-gradient(circle at 50% 0%, #1a2236 0%, #0B0E14 70%);
-		opacity: 0.5;
-	}
+    .fixed-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(circle at 50% 0%, #1a2236 0%, #0b0e14 70%);
+        opacity: 0.5;
+    }
 
     /* Utilities */
     .container {
@@ -92,12 +111,18 @@ const { title, description = "Kinesiólogo Cristian Rodríguez en La Serena. Rec
         display: inline-block;
         padding: 0.8rem 2rem;
         border-radius: 50px;
-        background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+        background: linear-gradient(
+            90deg,
+            var(--color-primary),
+            var(--color-accent)
+        );
         color: #000;
         font-family: var(--font-heading);
         font-weight: 700;
         text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
         border: none;
         cursor: pointer;
     }
@@ -106,7 +131,7 @@ const { title, description = "Kinesiólogo Cristian Rodríguez en La Serena. Rec
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(87, 226, 229, 0.3);
     }
-    
+
     .text-gradient {
         background: linear-gradient(90deg, #fff, var(--color-primary));
         -webkit-background-clip: text;

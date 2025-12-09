@@ -255,6 +255,11 @@ const year = new Date().getFullYear();
     }
 
     @media (max-width: 900px) {
+        .footer {
+            padding-top: 3rem;
+            padding-bottom: 6rem; /* Extra space for WhatsApp button */
+        }
+
         .footer-grid {
             grid-template-columns: 1fr;
             gap: 3rem;
@@ -262,16 +267,18 @@ const year = new Date().getFullYear();
 
         .footer-col {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .social-links,
-        .contact-line {
+        .social-links {
             justify-content: center;
         }
 
         .contact-line {
-            text-align: left; /* Align text left inside the centered flex container? No, sticking to center for consistency */
-            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
     }
 </style>

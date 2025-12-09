@@ -198,26 +198,70 @@
     }
 
     @media (max-width: 768px) {
-        /* On mobile, darken everything so text is readable */
+        /* On mobile, darken bottom significantly for text, but leave top clearer for face */
         .overlay-gradient {
             background: linear-gradient(
                 180deg,
-                #0b0e14 0%,
-                rgba(11, 14, 20, 0.9) 60%,
-                rgba(11, 14, 20, 0.7) 100%
+                rgba(11, 14, 20, 0.2) 0%,
+                rgba(11, 14, 20, 0.6) 40%,
+                #0b0e14 90%
             );
         }
 
         .hero-bg {
-            background-position: center center;
+            background-position: 75% center; /* Shift image left to show person on right */
         }
 
         .hero {
-            padding-top: 100px;
+            padding-top: 90px;
+            align-items: flex-end;
+            padding-bottom: 3rem; /* Reduced to avoid empty space */
+        }
+
+        .hero-content {
+            margin-bottom: 0;
+            text-align: center; /* Center text on mobile */
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin: 0 auto 2.5rem auto; /* Center description */
+        }
+
+        .cta-group {
+            justify-content: center; /* Center buttons */
+            gap: 1rem;
+            flex-direction: column; /* Stack buttons */
+            width: 100%;
+        }
+
+        .cta-group .btn,
+        .cta-group .btn-outline {
+            width: 100%; /* Full width buttons */
+            text-align: center;
         }
 
         .stats {
             gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center; /* Center stats */
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item {
+            align-items: center; /* Center individual stat items */
         }
     }
 </style>

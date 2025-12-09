@@ -286,20 +286,37 @@ const programs = [
     }
 
     @media (max-width: 900px) {
+        .programs-section {
+            padding: 50px 0; /* Reduced from 100px default */
+        }
+
         .cta-bar {
             flex-direction: column;
             text-align: center;
-            gap: 2rem;
-            padding: 2rem;
+            gap: 1.5rem;
+            padding: 2rem 1.5rem;
         }
 
         .cta-content {
             flex-direction: column;
         }
 
+        .section-header {
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
         .programs-carousel {
             /* Ensure padding allows seeing the first and last items fully */
             padding: 2rem 1.5rem 4rem 1.5rem;
+        }
+
+        .btn-cta {
+            width: 100%; /* Full width button in CTA bar */
+            text-align: center;
         }
     }
 </style>

@@ -1,5 +1,6 @@
 ---
-
+import Agenda from "./Agenda.jsx";
+import "../styles/agenda.css"; // Explicitly load styles
 ---
 
 <section id="contacto" class="contact-section">
@@ -15,62 +16,10 @@
         </div>
 
         <div class="contact-wrapper">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nombre Completo</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="Tu nombre"
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Teléfono / WhatsApp</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        required
-                        placeholder="+56 9 ..."
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="program">Programa de Interés</label>
-                    <select id="program" name="program">
-                        <option value="evaluacion">Evaluación General</option>
-                        <option value="domicilio"
-                            >Prueba Domicilio ($18.000)</option
-                        >
-                        <option value="calma">Pack Calma y Sueño</option>
-                        <option value="vitalidad"
-                            >Programa Vitalidad 3 Meses</option
-                        >
-                        <option value="retorno">Retorno Seguro</option>
-                        <option value="alivio">Alivio Express</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Mensaje (Opcional)</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        placeholder="Cuéntame brevemente tu dolor o consulta..."
-                    ></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-submit"
-                    >Enviar Solicitud</button
-                >
-                <p class="form-note">
-                    *Te contactaremos vía WhatsApp para confirmar hora.
-                </p>
-            </form>
+            <!-- Agenda Component Replaces Static Form -->
+            <div class="agenda-wrapper">
+                <Agenda client:only="react" />
+            </div>
 
             <div class="contact-info">
                 <h3>Cobertura a Domicilio</h3>
@@ -128,6 +77,16 @@
         margin-bottom: 4rem;
     }
 
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    .section-subtitle {
+        color: #94a3b8;
+    }
+
     .highlight {
         color: var(--color-primary);
         font-weight: 600;
@@ -135,56 +94,18 @@
 
     .contact-wrapper {
         display: grid;
-        grid-template-columns: 3fr 2fr;
-        gap: 4rem;
+        grid-template-columns: 1.5fr 1fr; /* Give more space to Agenda */
+        gap: 3rem;
+        align-items: start;
+    }
+
+    /* Contact Info Side */
+    .contact-info {
         background: #11151e;
-        padding: 3rem;
+        padding: 2.5rem;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: var(--color-text-muted);
-        font-size: 0.9rem;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100%;
-        padding: 1rem;
-        background: #0b0e14;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        color: #fff;
-        font-family: var(--font-body);
-        transition: border-color 0.3s ease;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-        outline: none;
-        border-color: var(--color-primary);
-    }
-
-    .btn-submit {
-        width: 100%;
-        margin-top: 1rem;
-        font-size: 1.1rem;
-    }
-
-    .form-note {
-        font-size: 0.8rem;
-        text-align: center;
-        margin-top: 1rem;
-        opacity: 0.7;
+        height: 100%;
     }
 
     .contact-info h3 {
@@ -258,6 +179,7 @@
 
     .badge-text {
         font-size: 0.9rem;
+        color: #94a3b8;
     }
 
     .badge-text strong {
@@ -265,19 +187,14 @@
         color: #fff;
     }
 
-    @media (max-width: 768px) {
-        .contact-section {
-            padding: 50px 0;
-        }
-
+    @media (max-width: 900px) {
         .contact-wrapper {
             grid-template-columns: 1fr;
-            padding: 1.5rem;
-            gap: 2rem;
+            gap: 3rem;
         }
 
-        .section-header {
-            margin-bottom: 2rem;
+        .contact-info {
+            order: 2; /* Put info below agenda on mobile */
         }
     }
 </style>

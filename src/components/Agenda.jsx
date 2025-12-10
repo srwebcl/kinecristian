@@ -6,39 +6,54 @@ import { Clock, CheckCircle } from 'lucide-react';
 import 'react-day-picker/dist/style.css';
 import '../styles/agenda.css';
 
-// Mock data generation
-const generateSlots = (date) => {
-    const slots = [];
-    const times = ['09:00', '10:00', '11:00', '12:00', '15:00', '16:00', '17:00', '18:00'];
 
-    if (date.getDay() === 0) return [];
 
-    const dateNum = date.getDate();
-    // Deterministic availability
-    times.forEach((time, index) => {
-        if ((dateNum + index) % 3 !== 0) {
-            slots.push({ time, available: true });
-        }
-    });
-    return slots;
-};
 
 export default function Agenda({ compact = false }) {
     const today = startOfToday();
     const [selectedDate, setSelectedDate] = useState(today);
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [step, setStep] = useState(1); // 1: Select, 2: Form, 3: Success
+    const [slots, setSlots] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    const slots = selectedDate ? generateSlots(selectedDate) : [];
-
-    // Reset slot when date changes
+    // Fetch slots when date changes
     useEffect(() => {
-        if (selectedDate) setSelectedSlot(null);
+        const fetchSlots = async () => {
+            if (!selectedDate) {
+                setSlots([]);
+                return;
+            }
+
+            setLoading(true);
+            setSelectedSlot(null); // Reset selection
+
+            try {
+                // Ensure we send a valid ISO string or consistent format
+                const dateStr = selectedDate.toISOString();
+                const response = await fetch(`/api/slots?date=${dateStr}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setSlots(data);
+                } else {
+                    console.error("Failed to fetch slots");
+                    setSlots([]);
+                }
+            } catch (error) {
+                console.error("Error fetching slots:", error);
+                setSlots([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchSlots();
     }, [selectedDate]);
 
     const handleSlotSelect = (slot) => {
         setSelectedSlot(slot);
     };
+
 
     return (
         <div className={`agenda-container ${compact ? 'agenda-compact' : ''}`}>
@@ -89,7 +104,11 @@ export default function Agenda({ compact = false }) {
                                 )}
 
                                 <div className="slots-grid">
-                                    {selectedDate ? (
+                                    {loading ? (
+                                        <div className="no-slots">
+                                            <p>Cargando horas...</p>
+                                        </div>
+                                    ) : selectedDate ? (
                                         slots.length > 0 ? (
                                             slots.map((slot) => (
                                                 <button

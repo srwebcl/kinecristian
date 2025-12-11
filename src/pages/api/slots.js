@@ -27,29 +27,37 @@ export const GET = async ({ url }) => {
         const credentialsEnv = getEnvVar('GOOGLE_SERVICE_ACCOUNT', true); // Optional env var
         let authOptions = { scopes: SCOPES_READ };
 
+        console.log("Debug: Checking credentials...");
+
         if (credentialsEnv) {
-            // Production / Vercel: Use ENV variable
+            console.log("Debug: Found GOOGLE_SERVICE_ACCOUNT env var.");
             try {
                 authOptions.credentials = JSON.parse(credentialsEnv);
+                console.log("Debug: Successfully parsed credentials from env.");
             } catch (e) {
-                console.error("Error parsing GOOGLE_SERVICE_ACCOUNT", e);
-                // Fallback or error? User said "first try env, then file" but usually providing bad env should fail. 
-                // However, strictly following: "Si existe... usarla". 
+                console.error("Debug Error: Failed to parse GOOGLE_SERVICE_ACCOUNT", e);
+                throw new Error("Invalid JSON in GOOGLE_SERVICE_ACCOUNT env var");
             }
+        } else {
+            console.log("Debug: GOOGLE_SERVICE_ACCOUNT env var NOT found.");
         }
 
         if (!authOptions.credentials) {
+            console.log("Debug: Fallback to local file /service-account.json");
             // Development / Fallback: Use local file
             // Only try to resolve file if we didn't get credentials from ENV
             const keyFile = path.resolve('./service-account.json');
             authOptions.keyFile = keyFile;
+            // Note: This likely fails on Vercel if the file isn't included or found
         }
 
         const auth = new google.auth.GoogleAuth(authOptions);
 
         const authClient = await auth.getClient();
+        console.log("Debug: Auth client created successfully.");
         const calendar = google.calendar({ version: 'v3', auth: authClient });
         const calendarId = getEnvVar('CALENDAR_ID');
+        console.log("Debug: Using Calendar ID:", calendarId ? "Found" : "Missing");
 
         // Horario: 9:00 a 18:00
         const workStartHour = 9;
@@ -97,7 +105,14 @@ export const GET = async ({ url }) => {
 
     } catch (error) {
         console.error('Error GET:', error);
-        return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+        return new Response(JSON.stringify({
+            error: 'Server Error',
+            details: error.message,
+            stack: error.stack // Proceed with caution showing stack, but needed for debug
+        }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+        });
     }
 };
 

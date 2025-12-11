@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^9.0.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.16.4",
@@ -19,6 +20,7 @@
     "lucide-react": "^0.556.0",
     "react": "^19.2.1",
     "react-day-picker": "^9.12.0",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "resend": "^6.6.0"
   }
 }
